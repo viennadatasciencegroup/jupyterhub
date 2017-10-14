@@ -1,61 +1,11 @@
-**[Technical Overview](#technical-overview)** |
-**[Prerequisites](#prerequisites)** |
-**[Authenticator setup](#authenticator-setup)** |
-**[Build the JupyterHub Docker image](#build-the-jupyterhub-docker-image)** |
-**[Spawner: Prepare the Jupyter Notebook Image](#spawner-prepare-the-jupyter-notebook-image)** |
-**[Run JupyterHub](#run-jupyterhub)** |
-**[Behind the scenes](#behind-the-scenes)** |
-**[FAQ](#faq)**
+# jupyterhub
+hosted jupyter notebooks for VDSG's data science café
 
-# jupyterhub-deploy-docker
+## usage
+> TODO fill out
 
-**jupyterhub-deploy-docker** provides a reference
-deployment of [JupyterHub](https://github.com/jupyter/jupyterhub), a
-multi-user [Jupyter Notebook](http://jupyter.org/) environment, on a
-**single host** using [Docker](https://docs.docker.com).  
-
-Possible **use cases** include:
-
-* Creating a JupyterHub demo environment that you can spin up relatively
-  quickly.
-* Providing a multi-user Jupyter Notebook environment for small classes,
-  teams, or departments.
-
-## Disclaimer
-
-This deployment is **NOT** intended for a production environment. 
-It is a reference implementation that does not meet traditional 
-requirements in terms of availability nor scalability. 
-
-If you are looking for a more robust solution to host JupyterHub, or
-you require scaling beyond a single host, please check out the
-excellent [zero-to-jupyterhub-k8s](https://github.com/jupyterhub/zero-to-jupyterhub-k8s)
-project.
-
-
-## Technical Overview
-
-Key components of this reference deployment are:
-
-* **Host**: Runs the [JupyterHub components](https://jupyterhub.readthedocs.org/en/latest/getting-started.html#overview)
-  in a Docker container on the host.
-
-* **Authenticator**: Uses [OAuthenticator](https://github.com/jupyter/oauthenticator)
-  and [GitHub OAuth](https://developer.github.com/v3/oauth/) to
-  authenticate users.
-
-* **Spawner**:Uses [DockerSpawner](https://github.com/jupyter/dockerspawner)
-  to spawn single-user Jupyter Notebook servers in separate Docker
-  containers on the same host.
-
-* **Persistence of Hub data**: Persists JupyterHub data in a Docker
-  volume on the host.
-
-* **Persistence of user notebook directories**: Persists user notebook
-  directories in Docker volumes on the host.
-
-![JupyterHub single host Docker deployment](internal/jupyterhub-docker.png)
-
+## installation
+Our setup is based on deployment of [jupyterhub-deploy-docker](https://github.com/jupyterhub/jupyterhub-deploy-docker).
 
 ## Prerequisites
 
