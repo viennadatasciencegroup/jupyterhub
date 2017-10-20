@@ -52,6 +52,13 @@ certificate and key file in the JupyterHub configuration. To configure:
    mkdir -p secrets
    cp jupyterhub.crt jupyterhub.key secrets/
    ```
+   Instead, as certificates need to be updated from time to time, we will link the container. 
+   A certificate renewal might require a rebuild of the containers.
+   Create a link to the `/etc/letsencrypt/live/hub.vdsg.at/` for a folder called `secrets` in the root directory of this project by executing
+   ```
+   ln -s /etc/letsencrypt/live/hub.vdsg.at ~/projects/jupyterhub/secrets 
+   ```
+   > NOTE: TODO improve this and mount certificates as a volume.
 
 
 ## Authenticator setup
