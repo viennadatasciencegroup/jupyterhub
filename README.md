@@ -59,6 +59,11 @@ certificate and key file in the JupyterHub configuration. To configure:
    ln -s /etc/letsencrypt/live/hub.vdsg.at ~/projects/jupyterhub/secrets 
    ```
    > NOTE: TODO improve this and mount certificates as a volume.
+   > TODO for an upgrade key and crt need to be extracted from pem:
+   ```
+   openssl x509 -outform der -in cert.pem -out jupyterhub.crt
+   openssl pkey -in cert.pem -out jupyterhub.key
+   ```
 
 
 ## Authenticator setup
