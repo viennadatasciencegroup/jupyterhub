@@ -47,7 +47,7 @@ To renew a certificate
 
 cp -RLr /etc/letsencrypt/live/hub.vdsg.at/. /home/foo/projects/jupyterhub/certificates/
 
-docker-compose down
+docker-compose stop
 make build
 docker-compose up -d
 ```
@@ -173,7 +173,7 @@ Once the container is running, you should be able to access the JupyterHub conso
 https://myhost.mydomain
 ```
 
-To bring down the JupyterHub container:
+To bring down the JupyterHub container and delete all of a user's notebooks:
 
 ```bash
 docker-compose down
