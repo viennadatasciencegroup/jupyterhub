@@ -48,6 +48,7 @@ To renew a certificate
 cp -RLr /etc/letsencrypt/live/hub.vdsg.at/. /home/foo/projects/jupyterhub/certificates/
 
 docker-compose stop
+cd /home/foo/projects/jupyterhub
 make build
 docker-compose up -d
 ```
