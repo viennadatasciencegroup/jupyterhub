@@ -23,12 +23,12 @@ secrets/oauth.env:
 	@echo "Need oauth.env file in secrets with GitHub parameters"
 	@exit 1
 
-/etc/letsencrypt/live/hub.vdsg.at/cert.pem:
-	@echo "Need an SSL certificate in /etc/letsencrypt/live/hub.vdsg.at/cert.pem"
+certificates/cert.pem:
+	@echo "Need an SSL certificate in certificates/cert.pem"
 	@exit 1
 
-/etc/letsencrypt/live/hub.vdsg.at/privkey.pem:
-	@echo "Need an SSL key in /etc/letsencrypt/live/hub.vdsg.at/privkey.pem"
+certificates/privkey.pem:
+	@echo "Need an SSL key in certificates/privkey.pem"
 	@exit 1
 
 userlist:
@@ -40,7 +40,7 @@ userlist:
 # Do not require cert/key files if SECRETS_VOLUME defined
 secrets_volume = $(shell echo $(SECRETS_VOLUME))
 ifeq ($(secrets_volume),)
-	cert_files=/etc/letsencrypt/live/hub.vdsg.at/cert.pem /etc/letsencrypt/live/hub.vdsg.at/privkey.pem
+	cert_files=certificates/cert.pem certificates/privkey.pem
 else
 	cert_files=
 endif

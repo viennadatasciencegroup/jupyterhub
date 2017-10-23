@@ -42,19 +42,19 @@ certificate and key file in the JupyterHub configuration. To configure:
    - use the helper script in this repo's [letsencrypt example](examples/letsencrypt/README.md), or
    - [create a self-signed certificate](https://jupyter-notebook.readthedocs.org/en/latest/public_server.html#using-ssl-for-encrypted-communication).
 
-1. Copy the certificate and key files to a
-   directory named `secrets` in this repository's root directory.  These will be
-   added to the JupyterHub Docker image at build time. For example, create a
-   `secrets` directory in the root of this repo and copy the certificate and
-   key files (`jupyterhub.crt` and `jupyterhub.key`) to this directory:
-
-   ```bash
-   mkdir -p secrets
-   cp jupyterhub.crt jupyterhub.key secrets/
+1. A certificate renewal requires rebuild of the containers.
+   To make this easier create a symlink:
    ```
-   A certificate renewal might require a rebuild of the containers.
-   > NOTE: TODO improve this and mount certificates as a volume.
+   ln -s /etc/letsencrypt/live/hub.vdsg.at ~/projects/jupyterhub/certificates 
+   ```
 
+**to renew certificates**
+execute
+```
+docker-compose down
+make build
+docker-compose up
+```
 
 ## Authenticator setup
 
