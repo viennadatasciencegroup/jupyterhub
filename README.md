@@ -45,7 +45,7 @@ To renew a certificate
 ```
 # get the new certificate via certbot
 
-cp -RLr /etc/letsencrypt/live/hub.vdsg.at/. /home/foo/projects/jupyterhub/certificates/
+cp -RLr /etc/letsencrypt/live/vdsg.at/. /home/foo/projects/jupyterhub/certificates/
 
 docker-compose stop
 cd /home/foo/projects/jupyterhub
