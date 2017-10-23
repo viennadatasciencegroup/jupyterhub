@@ -108,7 +108,8 @@ build the Jupyter Notebook image in the next section.)
 
    `userlist` file
    ```
-   geoheil admin
+   geoheil  admin
+   maksmitk admin
    ```
 
    The admin user will have the ability to add more users through JupyterHub's
