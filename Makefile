@@ -40,7 +40,7 @@ userlist:
 # Do not require cert/key files if SECRETS_VOLUME defined
 secrets_volume = $(shell echo $(SECRETS_VOLUME))
 ifeq ($(secrets_volume),)
-	cert_files=secrets/jupyterhub.crt secrets/jupyterhub.key
+	cert_files=/etc/letsencrypt/live/hub.vdsg.at/cert.pem /etc/letsencrypt/live/hub.vdsg.at/privkey.pem
 else
 	cert_files=
 endif
