@@ -42,15 +42,14 @@ certificate and key file in the JupyterHub configuration. To configure:
    - use the helper script in this repo's [letsencrypt example](examples/letsencrypt/README.md), or
    - [create a self-signed certificate](https://jupyter-notebook.readthedocs.org/en/latest/public_server.html#using-ssl-for-encrypted-communication).
 
-1. A certificate renewal requires rebuild of the containers.
-   To make this easier create a symlink:
-   ```
-   ln -s /etc/letsencrypt/live/hub.vdsg.at ~/projects/jupyterhub/certificates 
-   ```
-
-**to renew certificates**
-execute
+1. A certificate renewal requires rebuild of the containers. Additionally, cert files need to be copied from the letsencrypt folder:
+  
+To renew a certificate
 ```
+# get the new certificate via certbot
+
+cp -RLr /etc/letsencrypt/live/hub.vdsg.at/. /home/foo/projects/jupyterhub/certificates/
+
 docker-compose down
 make build
 docker-compose up
@@ -109,9 +108,7 @@ build the Jupyter Notebook image in the next section.)
 
    `userlist` file
    ```
-   jtyberg admin
-   jenny
-   guido
+   geoheil admin
    ```
 
    The admin user will have the ability to add more users through JupyterHub's
