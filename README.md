@@ -1,9 +1,6 @@
 # jupyterhub
 hosted jupyter notebooks for VDSG's data science café
 
-## usage
-> TODO fill out
-
 ## installation
 Our setup is based on deployment of [jupyterhub-deploy-docker](https://github.com/jupyterhub/jupyterhub-deploy-docker).
 
