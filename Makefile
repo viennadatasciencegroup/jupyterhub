@@ -23,12 +23,12 @@ secrets/oauth.env:
 	@echo "Need oauth.env file in secrets with GitHub parameters"
 	@exit 1
 
-secrets/jupyterhub.crt:
-	@echo "Need an SSL certificate in secrets/jupyterhub.crt"
+/etc/letsencrypt/live/hub.vdsg.at/cert.pem:
+	@echo "Need an SSL certificate in /etc/letsencrypt/live/hub.vdsg.at/cert.pem"
 	@exit 1
 
-secrets/jupyterhub.key:
-	@echo "Need an SSL key in secrets/jupyterhub.key"
+/etc/letsencrypt/live/hub.vdsg.at/privkey.pem:
+	@echo "Need an SSL key in /etc/letsencrypt/live/hub.vdsg.at/privkey.pem"
 	@exit 1
 
 userlist:
