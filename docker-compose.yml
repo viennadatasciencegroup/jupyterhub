@@ -35,6 +35,7 @@ services:
       # Bind Docker volume on host for JupyterHub database and cookie secrets
       - "data:${DATA_VOLUME_CONTAINER}"
       # TODO bind secrets to volume to support cert updates via let's encrypt
+      - "/etc/letsencrypt/live/hub.vdsg.at/:/srv/jupyterhub/secrets"
     ports:
       - "443:443"
     links:
@@ -51,6 +52,8 @@ services:
       # Postgres db info
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_HOST: hub-db
+      SSL_CERT: /srv/jupyterhub/secrets/jupyterhub.crt
+      SSL_KEY: /srv/jupyterhub/secrets/jupyterhub.key
     env_file:
       - secrets/postgres.env
       - secrets/oauth.env
